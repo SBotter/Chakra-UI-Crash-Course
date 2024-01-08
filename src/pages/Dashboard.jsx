@@ -105,6 +105,7 @@ export default function Dashboard() {
       p={{ base: "2px", md: "5px", lg: "10px" }}
       spacing={10}
       minChildWidth="300px"
+      fixc
     >
       {tasks.tasks.map((task) => (
         <Card key={task.id} borderTop="8px" borderColor="purple.400">
