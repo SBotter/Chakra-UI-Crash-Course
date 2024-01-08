@@ -16,7 +16,7 @@ export default function Navbar() {
 
   return (
     <Flex as="nav" p="10px" mb="60px" alignItems="center">
-      <Heading as="h1" fontSize="1.5em">
+      <Heading as="h1" fontSize="1.5em" color="gray.800">
         Dojo Tasks
       </Heading>
       <Spacer />
@@ -29,7 +29,7 @@ export default function Navbar() {
             </Text>
           </AvatarBadge>
         </Avatar>
-        <Text>mario@netninja.dev</Text>
+        <Text color="gray.800">mario@netninja.dev</Text>
         <Button
           colorScheme="purple"
           onClick={() =>
