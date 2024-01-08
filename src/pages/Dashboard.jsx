@@ -1,3 +1,4 @@
+import { EditIcon, ViewIcon } from "@chakra-ui/icons";
 import {
   SimpleGrid,
   Card,
@@ -5,6 +6,12 @@ import {
   CardHeader,
   CardFooter,
   Text,
+  Flex,
+  Box,
+  Heading,
+  HStack,
+  Button,
+  Divider,
 } from "@chakra-ui/react";
 
 export default function Dashboard() {
@@ -100,14 +107,35 @@ export default function Dashboard() {
       minChildWidth="300px"
     >
       {tasks.tasks.map((task) => (
-        <Card key={task.id}>
+        <Card key={task.id} borderTop="8px" borderColor="purple.400">
           <CardHeader>
+            <Flex gap="5px">
+              <Box w="50px" h="50px">
+                <Text>AV</Text>
+              </Box>
+              <Box>
+                <Heading as="h3" size="sm">
+                  {task.title}
+                  <Text>by {task.author}</Text>
+                </Heading>
+              </Box>
+            </Flex>
             <Text>{task.author}</Text>
           </CardHeader>
           <CardBody color="gray.500">
             <Text>{task.description}</Text>
           </CardBody>
-          <CardFooter></CardFooter>
+          <Divider borderColor="gray.200" />
+          <CardFooter>
+            <HStack>
+              <Button variant="ghost" leftIcon={<ViewIcon />}>
+                Watch
+              </Button>
+              <Button variant="ghost" leftIcon={<EditIcon />}>
+                Comment
+              </Button>
+            </HStack>
+          </CardFooter>
         </Card>
       ))}
     </SimpleGrid>
