@@ -1,40 +1,47 @@
+import { UnlockIcon } from "@chakra-ui/icons";
 import {
-  Box,
-  Button,
   Flex,
-  HStack,
   Heading,
-  Spacer,
+  Box,
   Text,
+  Button,
+  Spacer,
+  HStack,
+  useToast,
 } from "@chakra-ui/react";
-import React from "react";
 
-const Navbar = () => {
+export default function Navbar() {
+  const toast = useToast();
+
   return (
-    <Flex as="nav" p="10px" mb="40px" alignItems="center" gap="10px">
-      <Text
-        fontSize={{ base: "14px", md: "18px", lg: "20px", xl: "30px" }}
-        fontWeight="bold"
-        color="#000000"
-      >
+    <Flex as="nav" p="10px" mb="60px" alignItems="center">
+      <Heading as="h1" fontSize="1.5em">
         Dojo Tasks
-      </Text>
+      </Heading>
       <Spacer />
 
-      <HStack spacing={{ base: "2px", lg: "20px" }}>
-        <Box bg="gray.200" p={{ base: "2px" }}>
+      <HStack spacing="20px">
+        <Box bg="gray.200" p="10px 15px" borderRadius="50%">
           M
         </Box>
-        <Text
-          fontSize={{ base: "12px", md: "14px", lg: "18px", xl: "22px" }}
-          color="#000000"
+        <Text>mario@netninja.dev</Text>
+        <Button
+          colorScheme="purple"
+          onClick={() =>
+            toast({
+              title: "Logged out.",
+              description: "Successfully logged out",
+              duration: 10000,
+              isClosable: true,
+              position: "top",
+              status: "success",
+              icon: <UnlockIcon />,
+            })
+          }
         >
-          mario@netninja.dev
-        </Text>
-        <Button colorScheme="purple">Logout</Button>
+          Logout
+        </Button>
       </HStack>
     </Flex>
   );
-};
-
-export default Navbar;
+}
